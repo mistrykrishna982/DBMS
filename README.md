@@ -40,13 +40,13 @@ This repository contains my DBMS practical assignments and SQL programs complete
 DBMS/
 │
 ├── Day1/
-│   ├── Practical1.sql
-│   ├── Practical2.sql
+│   ├── Que1.sql
+│   ├── Que2.sql
 │   └── ...
 │
 ├── Day2/
-│   ├── Practical1.sql
-│   ├── Practical2.sql
+│   ├── Que1.sql
+│   ├── Que2.sql
 │   └── ...
 │
 └── README.md

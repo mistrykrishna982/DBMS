@@ -1,0 +1,45 @@
+1.We can look up any patient's details instantly.
+
+->select * from patients where p_nm="Rahul";
+
+2.We can see every doctor's specialization, department, and fees.
+
+->select d_id,d_nm,specialization,fee,dept_nm from doctor join department on doctor.dept_id=department.dept_id;
+
+3.We can book, view, and manage appointments without conflicts.
+(Hint: Check the availability of a specialized doctor on a specified date and time – list the doctors on the given parameters.)
+
+-> select d_nm from doctor where specialization="Cardiologist" and d_id not in(select d_id from appointment where appointment_date="2025-07-10" and time="11:00:00");
+
+
+
+4.How many patients does Dr. Mehta see this week?
+
+->select count(*) as total_patients from appointment join doctor on appointment.d_id=doctor.d_id where d_nm="Dr. Mehta";
+
+5.Which department earns the most from consultations?
+
+ -> select dept_nm, sum(fee) as total_income from appointment join doctor on appointment.d_id=doctor.d_id join department on doctor.dept_id=department.dept_id group by dept_nm order by total_income desc;
+
+
+
+
+=============================================================== QUE 2=======================================================
+
+1.We can look up any movie's details genre, language, duration, release date
+
+->select * from movie where movie_name="Kalki";
+
+
+2.We can see every screen's capacity and type (2D/3D/Dolby)
+
+->select * from screen;
+
+3.We can book tickets and instantly know how many seats are left for a specific show
+
+->
+
+4.We can generate reports like 'most watched movie this month' or boday's total ticket revenue in seconds
+
+-> select movie_name,sum(seats_booked) as total_revenue from movie join shows on movie.movie_id=shows.movie_id join ticket on ticket.show_id=shows.show_id where month(show_date)=MONTH(CURDATE()) and year(show_date)=YEAR(CURDATE()) group by movie_name order by total_revenue desc;
+

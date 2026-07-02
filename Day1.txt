@@ -1,0 +1,41 @@
+1.customer
+
+->create table customer(c_id integer primary key,c_nm varchar(20),email varchar(20),phone integer,city varchar(20));
+
+2.product
+
+->create table product(p_id integer primary key,p_nm varchar(20),category varchar(20) not null,price integer not null);
+
+3.orders
+
+->create table orders(o_id integer primary key,cid integer references customer(c_id),pid integer references product(p_id),qty integer,o_date date,total_amt integer);
+
+
+=======================QUERY=======================
+1.Display list of all customers
+
+-> select * from customer;
+
+
+2.Display list of all available products Name. 
+
+->select p_nm from product;
+
+3.Display total Products purchased by each customer 
+
+->select c_nm,sum(qty) as TotalProduct from customer join orders on customer.c_id=orders.cid group by c_nm;
+
+
+4.Quantity of each product purchased by Particular Customer 
+
+-> select c_nm,p_nm,qty as TotalProduct from customer join orders on customer.c_id=orders.cid join product on orders.pid=product.p_id where c_nm="Rahul";
+
+
+5.Customer invoice showing customer name, product name, quantity, price, and total amount.
+
+->select c_nm,p_nm,qty,price,total_amt from customer join orders on customer.c_id=orders.cid join product on orders.pid=product.p_id;
+
+
+6.Customers who purchased products worth more than ₹5,000
+
+-> select c_nm, sum(total_amt) as TotalPurchase from customer join orders on customer.c_id=orders.cid group by c_nm having sum(total_amt)>5000;

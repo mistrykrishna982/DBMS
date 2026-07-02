@@ -76,8 +76,8 @@ This repository is created for educational purposes and contains my college DBMS
 
 ## 👨‍🎓 Author
 
-**Name:** Your Name
+**Name:** Krishna Mistry
 
-**Course:** BCA / B.Sc. / MCA
+**Course:** MCA
 
 **Semester:** Semester 3
